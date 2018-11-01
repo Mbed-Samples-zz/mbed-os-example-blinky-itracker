@@ -91,3 +91,7 @@ NRF52_DK | iTracker
 ```
 
 ![ci_start](images/jtag_connection.jpg)
+
+![ci_start](images/segger1.jpg)
+
+![ci_start](images/segger2.jpg)
