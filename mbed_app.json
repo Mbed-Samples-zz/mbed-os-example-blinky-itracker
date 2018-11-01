@@ -1,0 +1,29 @@
+{
+  "config": {
+    "rak8212-itracker-led": {
+      "help": "RAK8212 iTracker LED",
+      "macro_name": "RAK8212_ITRACKER_LED",
+      "value": "P0_12"
+    },
+    "rak8212-itracker-uart-tx": {
+      "help": "UART TX labeled SENSOR_DOUT2/AIN5/USART1 TX/D29",
+      "macro_name": "RAK8212_ITRACKER_UART_TX",
+      "value": "P0_29"
+    },
+    "rak8212-itracker-uart-rx": {
+      "help": "UART RX labeled SENSOR_DOUT1/AIN4/USART1 RX/D28",
+      "macro_name": "RAK8212_ITRACKER_UART_RX",
+      "value": "P0_28"
+    }
+  },
+  "target_overrides": {
+    "*": {
+      "drivers.uart-serial-rxbuf-size": 1024,
+      "mbed-trace.enable": 1,
+      "platform.stdio-baud-rate": 115200,
+      "platform.stdio-buffered-serial": true,
+      "platform.stdio-convert-newlines": true,
+      "platform.stdio-flush-at-exit": true
+    }
+  }
+}
