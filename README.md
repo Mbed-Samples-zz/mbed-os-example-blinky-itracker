@@ -31,23 +31,27 @@ Your PC may take a few minutes to compile your code. At the end, you see the fol
 
 ```
 [snip]
-+----------------------------+-------+-------+------+
-| Module                     | .text | .data | .bss |
-+----------------------------+-------+-------+------+
-| Misc                       | 13939 |    24 | 1372 |
-| core/hal                   | 16993 |    96 |  296 |
-| core/rtos                  |  7384 |    92 | 4204 |
-| features/FEATURE_IPV4      |    80 |     0 |  176 |
-| frameworks/greentea-client |  1830 |    60 |   44 |
-| frameworks/utest           |  2392 |   512 |  292 |
-| Subtotals                  | 42618 |   784 | 6384 |
-+----------------------------+-------+-------+------+
-Allocated Heap: unknown
-Allocated Stack: unknown
-Total Static RAM memory (data + bss): 7168 bytes
-Total RAM memory (data + bss + heap + stack): 7168 bytes
-Total Flash memory (text + data + misc): 43402 bytes
-Image: build\K64F\ARM\mbed-os-example-blinky-itracker.hex
+| Module             |           .text |       .data |          .bss |
+|--------------------|-----------------|-------------|---------------|
+| [fill]             |       274(+274) |     16(+16) |       57(+57) |
+| [lib]/c.a          |   24207(+24207) | 2472(+2472) |       89(+89) |
+| [lib]/gcc.a        |     3112(+3112) |       0(+0) |         0(+0) |
+| [lib]/misc         |       208(+208) |     12(+12) |       28(+28) |
+| [lib]/stdc++.a     |           1(+1) |       0(+0) |         0(+0) |
+| main.o             |       461(+461) |       4(+4) |     281(+281) |
+| mbed-os/components |         70(+70) |       0(+0) |         0(+0) |
+| mbed-os/drivers    |     3819(+3819) |       0(+0) |         0(+0) |
+| mbed-os/features   |   63016(+63016) |     12(+12) |   2090(+2090) |
+| mbed-os/hal        |     1928(+1928) |       8(+8) |     130(+130) |
+| mbed-os/platform   |     4978(+4978) |   260(+260) |   1933(+1933) |
+| mbed-os/rtos       |     9716(+9716) |   168(+168) |   6113(+6113) |
+| mbed-os/targets    |   14055(+14055) |     48(+48) |     759(+759) |
+| Subtotals          | 125845(+125845) | 3000(+3000) | 11480(+11480) |
+Total Static RAM memory (data + bss): 14480(+14480) bytes
+Total Flash memory (text + data): 128845(+128845) bytes
+
+Update Image: ./BUILD/NRF52_DK/GCC_ARM/mbed-os-example-blinky-itracker_update.bin
+Image: ./BUILD/NRF52_DK/GCC_ARM/mbed-os-example-blinky-itracker.hex
 ```
 
 ### Program your board
@@ -67,7 +71,7 @@ Programming iTracker using JLink application from the J-Link Software Pack.
 JLinkExe -if swd -device nRF52832_xxAA -speed auto
 connect
 halt
-loadfile build\K64F\ARM\mbed-os-example-blinky-itracker.hex
+loadfile ./BUILD/NRF52_DK/GCC_ARM/mbed-os-example-blinky-itracker.hex
 reset
 go
 ```
